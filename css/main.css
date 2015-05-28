@@ -1,0 +1,118 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+.page-index{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: url(../images/bg.jpg) no-repeat;
+    background-size: cover;
+}
+
+.page-index .logo{
+    float:left;
+    margin-top: 1.8%;
+    margin-left:26.8%;
+    width:46.5%;
+    height:12.8%;
+    background:url(../logo.png) no-repeat;
+    background-size: contain;
+}
+
+.page-index .inflatekingdom{
+    float:left;
+    margin-top:4.7%;
+    margin-left:12.4%;
+    width:75.5%;
+    height:25.4%;
+    background:url(../images/icon-inflatekingdom.png) no-repeat;
+    background-size: contain;
+}
+
+.page-index .active{
+    float:left;
+    margin-top:3.7%;
+    width:100%;
+    height:15%;
+}
+
+.page-index .active .detail{
+    float:left;
+    margin-left:26.2%;
+    width:18.4%;
+    height:100%;
+    background:url(../images/icon-detail.png) no-repeat;
+    background-size: contain;
+}
+
+.page-index .active .joinin{
+    float:right;
+    margin-right:26.2%;
+    width:18.4%;
+    height:100%;
+    background:url(../images/icon-joinin.png) no-repeat;
+    background-size: contain;
+}
+
+.font-samllwhite{
+    font-family:Helvetica;
+    font-size: 10px;
+    color: #fff;
+}
+
+.copyright{
+    position: absolute;
+    bottom: 1.9%;
+    width:100%;
+    text-align: center;
+}
+
+
+.page-detail {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:#000;
+    opacity: 0.8;
+    background-size: cover;
+}
+
+.page-detail .inflatekingdom{
+    float:left;
+    margin-top:4.7%;
+    margin-left:12.4%;
+    width:75.5%;
+    height:25.4%;
+    background:url(../images/icon-inflatekingdom.png) no-repeat;
+    background-size: contain;
+}
+
+.page-detail .text-detail{
+    float:right;
+    margin-right:26.2%;
+    margin-left:12%;
+    width:78.1%;
+    height:50%;
+    background:url(../images/text-detail.png) no-repeat;
+    background-size: contain;
+}
+
+.page-detail .joinin{
+    float:right;
+    margin-right:26.2%;
+    width:18.4%;
+    height:100%;
+    background:url(../images/icon-joinin.png) no-repeat;
+    background-size: contain;
+}
