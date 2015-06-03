@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="./js/script/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/transition.css">
+    <script type="text/javascript">
+        var currentFile = "";
+        //声明全局音频对象
+        var oAudio;
+        //声明全局音量
+        var volume;
+        function playAudio() {
+            if (window.HTMLAudioElement) {
+                try {
+                    //获取音频对象实例
+                    oAudio = document.getElementById('myaudio');
+                    //获取“播放”按钮实例
+                    var btn = document.getElementById('play');
+                    //得到音频文件名文本框实例
+                    var audioURL = document.getElementById('audiofile');
+                    //如果文本框里的值和正在播放的不一致，则播放文本框里地址的文件
+                    if (audioURL.value !== currentFile) {
+                        oAudio.src = audioURL.value;
+                        currentFile = audioURL.value;
+                    }
+                    //使用Audio对象只读属性更改：播放状态及按钮文本。
+                    if (oAudio.paused) {
+                        oAudio.addEventListener('canplaythrough',bgmFadeinPlay(), false);
+                        btn.textcontent = "播放";
+                    } else {
+                        oAudio.addEventListener('canplaythrough',bgmFadeoutPlay(), false);
+                        btn.textcontent = "暂停";
+                    }
+                }
+                catch (e) {
+                    //出错,显错信息
+                    window.console && console.error("错误：" + e);
+                }
+            }
+        }
+
+        function bgmFadeinPlay() {
+            oAudio.volume = 0. 5;
+            oAudio.play();
+//            setTimeout(function(){
+//                oAudio.volume = 1;
+//                console.log(volume);
+//                },3000);
+            while(oAudio.volume>=0.05 && oAudio.volume<=0.95){
+                var audioTimeout = setTimeout(function(){
+                        oAudio.volume += 0.045;
+                    console.log(volume);
+                },100);
+            }
+            console.log(volume);
+            console.log("in bgmFadeinPlay fun");
+        }
+
+        function bgmFadeoutPlay() {
+            console.log("in bgmFadeoutPlay fun");
+            oAudio.volume = 1;
+            oAudio.pause();
+        }
+    </script>
+</head>
+<body>
+<audio id="myaudio"></audio>
+<input type="text" id="audiofile" size="80" value="./media/zelda.mp3"/>
+<button id="play" onclick="playAudio();">播放</button>
+</body>
+</html>
+

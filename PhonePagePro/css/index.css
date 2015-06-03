@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /*-webkit-filter: grayscale(40%);
+    -moz-filter: grayscale(40%);
+    -ms-filter: grayscale(40%);
+    -o-filter: grayscale(40%);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+    _filter:none;*/
+    /*-webkit-filter: blur(10px);*/
+    /*-webkit-filter:shade();*/
+    /*opacity:0.4;    //透明度*/
+    /*filter:alpha(opacity=40);  针对 IE8 以及更早的版本   //透明度*/
+}
+
+body {
+    background-color: #000;
+}
+
+#area {
+    position: relative;
+    margin-top: 40%;
+    margin-left: 13%;
+    width: 750px;
+    height: 590px;
+}
+
+.left {
+    position: absolute;
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    background: url("../picture/p02-01.png") no-repeat 0px 0px;
+    overflow: hidden;
+}
+
+.right {
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+/ / background : url("../picture/p02-02.png") no-repeat - 375 px 0 px;
+}
+
+.top {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url("../picture/p02-01.png") no-repeat -375px 0px;
+    animation: imgMoveOut 2s forwards;
+    -moz-animation: imgMoveOut 2s forwards;
+    -webkit-animation: imgMoveOut 2s forwards;
+    -o-animation: imgMoveOut 2s forwards;
+}
+
+@keyframes imgMoveOut /* Safari 和 Chrome */
+{
+    from {
+        top: 0px;
+        opacity: 1
+    }
+    to {
+        top: -270px;
+        opacity: 0
+    }
+}
+
+@-moz-keyframes imgMoveOut /* Safari 和 Chrome */
+{
+    from {
+        top: 0px;
+        opacity: 1
+    }
+    to {
+        top: -270px;
+        opacity: 0
+    }
+}
+
+@-webkit-keyframes imgMoveOut /* Safari 和 Chrome */
+{
+    from {
+        top: 0px;
+        opacity: 1
+    }
+    to {
+        top: -270px;
+        opacity: 0;
+    }
+}
+
+@-o-keyframes imgMoveOut /* Safari 和 Chrome */
+{
+    from {
+        top: 0px;
+        opacity: 1
+    }
+    to {
+        top: -270px;
+        opacity: 0
+    }
+}
+
+.buttom {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url("../picture/p02-02.png") no-repeat -375px 0px;
+    opacity: 0;
+    animation: imgMoveIn 2s 2s forwards;
+    -webkit-animation: imgMoveIn 2s 2s forwards;
+    -moz-animation: imgMoveIn 2s 2s forwards;
+    -o-animation: imgMoveIn 2s 2s forwards;
+}
+
+@keyframes imgMoveIn {
+    from {
+        top: -270px;
+        opacity: 0;
+    }
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes imgMoveIn {
+    from {
+        top: -270px;
+        opacity: 0;
+    }
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes imgMoveIn {
+    from {
+        top: -270px;
+        opacity: 0;
+    }
+    to {
+        top: -270px;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes imgMoveIn {
+    from {
+        top: -270px;
+        opacity: 0;
+    }
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+.txtshadow {
+    position: absolute;
+    border: 1px solid black;
+    background-color: aqua;
+    box-shadow: 5px 5px gray;
+}
+
+.shadow {
+    float: left;
+    filter: shadow(blue, 45);
+}
+
+.dropshadow {
+    margin-left: 10px;
+    float: left;
+    filter: dropshadow(blue, 15, 13, 1);
+    -webkit-filter: dropshadow(blue, 15, 13, 1);
+    /*filter: dropshadow(color = blue, offx = 15, offy = 13, positive = 1);*/
+}

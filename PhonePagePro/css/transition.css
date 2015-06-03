@@ -1,0 +1,114 @@
+.demoBox {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+
+.transition_property_1 {
+    top: 20px;
+    left: 20px;
+    transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition-property: all;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+}
+
+.transition_property_2 {
+    top: 20px;
+    left: 140px;
+    transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition-property: none;
+    -webkit-transition-property: none;
+    -moz-transition-property: none;
+    -o-transition-property: none;
+}
+
+.transition_property_3 {
+    top: 20px;
+    left: 260px;
+    transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition-property: height;
+    -webkit-transition-property: height;
+    -moz-transition-property: height;
+    -o-transition-property: height;
+}
+
+.transition_property_4 {
+    top: 140px;
+    left: 20px;
+    transition: ease all;
+    -webkit-transition: ease all;
+    -moz-transition: ease all;
+    -o-transition: ease all;
+    transition-duration: 0s;
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -o-transition-duration: 0s;
+}
+
+.transition_property_5 {
+    top: 140px;
+    left: 140px;
+    transition: ease all;
+    -webkit-transition: ease all;
+    -moz-transition: ease all;
+    -o-transition: ease all;
+    transition-duration: 5s;
+    -webkit-transition-duration: 5s;
+    -moz-transition-duration: 5s;
+    -o-transition-duration: 5s;
+}
+
+.transition_property_6 {
+    top: 260px;
+    left: 20px;
+    transition: ease all 2s;
+    -webkit-transition: ease all -1s;
+    -moz-transition: ease all -1s;
+    -o-transition: ease all -1s;
+    transition-delay:-1s;
+    -webkit-transition-delay:-1s;
+    -moz-transition-delay:-1s;
+    -o-transition-delay:-1s;
+}
+
+.transition_property_7 {
+    top: 260px;
+    left: 260px;
+    transition: ease all 2s;
+    -webkit-transition: ease all 2s;
+    -moz-transition: ease all 2s;
+    -o-transition: ease all 2s;
+    -webkit-transition: ease all 2s;
+    -moz-transition: ease all -1s;
+    -o-transition: ease all 2s;
+    transition-delay:2s;
+    -webkit-transition-delay:2s;
+    -moz-transition-delay:2s;
+    -o-transition-delay:2s;
+}
+
+.transition_property_1:hover,
+.transition_property_2:hover,
+.transition_property_3:hover,
+.transition_property_4:hover,
+.transition_property_5:hover,
+.transition_property_7:hover {
+    width: 500px;
+    height: 300px;
+}
+
+.transition_property_6:hover{
+    margin-left:400px;
+}

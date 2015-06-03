@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>theFirstProject</title>
+    <script type="text/javascript" src="./js/script/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/transition.css">
+    <script type="text/javascript">
+        function play() {
+            var currentFile = "";
+            function palyAudio(){
+                if(window.HTMLAudioElement){
+                    try{
+                        //获取音频对象实例
+                        var oAudio = document.getElementById('myaudio');
+                        //获取“播放”按钮实例
+                        var btn = document.getElementById('play');
+                        var audioURL = document.getElementById()
+                    }
+                    catch(e){
+                        //出错,显错信息
+                        if(window.console && console.error("错误："+e));
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="audiofile" size="80" value="."/>
+<audio id="myaudio"></audio>
+<button id="play" onclick="playAudio();">播放</button>
+<!--变换属性个数：all,none,property(height...).-->
+<div class="demoBox transition_property_1">变换所有属性</div>
+<div class="demoBox transition_property_2">没有变换属性</div>
+<div class="demoBox transition_property_3">变换某个属性</div>
+<!--过渡有无-->
+<div class="demoBox transition_property_4">无过渡</div>
+<div class="demoBox transition_property_5">过渡5秒</div>
+<!--延迟大小-->
+<div class="demoBox transition_property_6">无过渡</div>
+<div class="demoBox transition_property_7">过渡5秒</div>
+<!--
+<audio src="./media/our love.mp3" autoplay="autoplay">
+</audio>
+-->
+
+</body>
+</html>
+
