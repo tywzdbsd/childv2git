@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    Your name: <input type="text" ng-model="yourname" placeholder="World">
+    <hr>
+    Hello {{yourname || 'World'}}!
+</body>
+</html>
+<script src="../../assets/js/angular.min.js"></script><!--这行载入AngularJS脚本-->
