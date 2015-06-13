@@ -1,0 +1,39 @@
+你的应用在浏览器中连接到服务端,为用户请求它需要 的任何内容,Angular 将它和模板合并。
+  基本的启动流程就像这样:
+1. 用户请求应用的第一页面。
+2. 用户的浏览器发出一个 HTTP 链接到你服务器,加载包含模板的 index.html 页面。
+3. Angular 加载到页面,等待页面完全加载完成,然后寻找 ng-app 定义模板的边界。
+4. Angular 经过模板寻找标识符和捆绑。这样的结果是监听器和 DOM 操作完成了注册,同
+时从服务器查询初始化数据。这块工作的最终结果是应用完成了自举(启动完成,计算
+18 / 163
+<script>
+var myAppModule = angular.module('myApp', []); myAppModule.controller('TextController', function($scope) {
+var someText = {};
+someText.message = 'You have started your journey.'; $scope.someText = someText;
+});
+</script>
+</body> </html>
+<div ng-repeat="item in items"> <span>{{item.title}}</span>
+...
+</div>
+机专业用语),就像 DOM 一样将模板转换成是视图。
+5. 你连接到服务器按需加载你额外需要展示给用户的数据。
+步骤 1 至 3 是每个 Angular 应用标准的步骤。步骤 4 和 5,你可以做选择。
+这些步骤可 以同步或异步发生。为了性能,应用需要展示给用户的一个视图数据可以随 HTML 模板一起 加载,
+可以避免多次请求。
+通过使用 Angular 结构化你的应用,应用程序的模板和填充它们的数据是分离开的。
+这 样的好处就是这些模板现在可缓存了。在第一次加载后,只有新数据加载到浏览器。
+只有JavaScript,图片,CSS 和其他资源,缓存这些模板可以给应用更好的性能。
+
+显示文本：
+两种：<p>{{greeting}}</p>
+<p ng-bind="greeting"></p>
+
+浏览器加载HTML页面,渲染,最后Angular才能按照你的意图解析它。
+好消息是你仍可以在大多数模板中使用{{ }}。
+然而,为了在 index.html 页面做数据绑定, 用 ng-bind 代替之。这样一来,直到数据加载用户才能看到内容。
+
+表单输入
+checkbox
+
+用$watch更新这个字段：调用$watch(),传递一个观察的表达式和一个回调函数，当表达式改变时，将调用回调函数。

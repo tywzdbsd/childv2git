@@ -1,0 +1,47 @@
+<!--
+任何应用使用 Angular 必须做两件事:
+1. 加载 angular.js
+2. 使用 ng-app 告知 Angular 管理哪一部分的 DOM
+-->
+<!DOCTYPE html>
+<html ng-app="root_node" ng-controller='CartController'>
+<head lang="en">
+    <base/><!--target="_blank"表示网页中所有的超链接的目标地址都在新建窗口中打开-->
+    <meta charset="UTF-8">
+    <title>Your Shopping Cart</title>
+    <script src="../../assets/js/angular.min.js"></script>
+</head>
+<body >
+    <h1>Your Order</h1>
+    <div ng-repeat='item in items'>
+        <span>{{item.title}}</span>
+        <input ng-model='item.quantity'/>
+        <span>单价：{{item.price | currency}}</span>
+        <span>&nbsp;&nbsp;&nbsp;总价：{{item.price*item.quantity | currency}}</span>
+        <button ng-click="remove($index)">Remove</button>
+    </div>
+    <script>
+        angular.module('root_node', [])
+                .controller('CartController',function($scope) {
+                    ////@formatter:off
+                    $scope.items = [{
+                        title : 'Paint pots',
+                        quantity : 8,
+                        price :3.95
+                    },{
+                        title : 'Polka dots',
+                        quantity : 17,
+                        price : 12.95
+                    },{
+                        title : 'Pebbles',
+                        quantity : 5,
+                        price : 6.95
+                    }];
+                    ////@formatter:on
+                    $scope.remove = function(index){
+                        $scope.items.splice(index,1);
+                    };
+                });
+    </script>
+</body>
+</html>

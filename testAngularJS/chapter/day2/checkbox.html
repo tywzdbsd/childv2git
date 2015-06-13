@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="checkboxApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form ng-controller="SomeController">
+        <input type="checkbox" ng-model="youCheckedit" ng-change="showCheckboxState(youCheckedit)"/>
+    </form>
+<!--ng-change和ng-click都可以触发checkbox值改变以后执行自定义方法 -->
+</body>
+</html>
+<script src="../../assets/js/angular.min.js"></script>
+<script>
+    angular.module('checkboxApp',[])
+            .controller('SomeController',function ($scope){
+                $scope.youCheckedit = true;
+                $scope.showCheckboxState = function(val){
+                    console.log(val);
+                };
+            });
+</script>
