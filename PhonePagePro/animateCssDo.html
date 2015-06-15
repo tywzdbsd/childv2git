@@ -5,6 +5,26 @@
     <title>theFirstProject</title>
     <script type="text/javascript" src="./js/script/jquery-1.8.3.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/transition.css">
+    <script type="text/javascript">
+        function play() {
+            var currentFile = "";
+            function palyAudio(){
+                if(window.HTMLAudioElement){
+                    try{
+                        //获取音频对象实例
+                        var oAudio = document.getElementById('myaudio');
+                        //获取“播放”按钮实例
+                        var btn = document.getElementById('play');
+                        var audioURL = document.getElementById()
+                    }
+                    catch(e){
+                        //出错,显错信息
+                        if(window.console && console.error("错误："+e));
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <input type="text" id="audiofile" size="80" value="."/>
