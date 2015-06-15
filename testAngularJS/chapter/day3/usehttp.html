@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="usehttpApp" ng-controller="customerController">
+<head>
+    <title>testHttp</title>
+    <script src="../../assets/js/angular.min.js"></script>
+</head>
+<body>
+<div>
+    <ul>
+        <li ng-repeat="x in names">
+            aa{{ x.Name + ','+x.Country }}
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    angular.module("usehttpApp", [])
+            .controller("customerController", function ($scope, $http,$interval) {
+                $http.get("Customers_JSON.php")
+                        .success(
+                            function (data) {
+                                $scope.names = data;
+                            }
+                        );
+                $interval(function () {
+                    console.log("test");
+                },1000);
+
+//                myUrl = "http://www.w3cschool.cc/try/angularjs/data/Customers_JSON.php";
+//                $http.get(myUrl)
+//                        .success(
+//                            function(data){
+//                                alert("yes"+data);
+//                            }
+//                         )
+//                        .error(
+//                            function(data){
+//                                alert("error");
+//                            }
+//                        );
+            });
+</script>
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<body>-->
+<!--<div ng-app="" ng-controller="customersController">-->
+
+<!--<ul>-->
+<!--<li ng-repeat="x in names">-->
+<!--{{ x.Name + ', ' + x.Country }}-->
+<!--</li>-->
+<!--</ul>-->
+
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!--<script>-->
+<!--function customersController($scope,$http) {-->
+<!--$http.get("Customers_JSON.php")-->
+<!--.success(function(response) {$scope.names = response;});-->
+<!--}-->
+<!--</script>-->

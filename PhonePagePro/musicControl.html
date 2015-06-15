@@ -11,6 +11,8 @@
         var oAudio;
         //声明全局音量
         var volume;
+        //声明全局interval计数器
+        var interval_1,interval_2;
         function playAudio() {
             if (window.HTMLAudioElement) {
                 try {
@@ -27,10 +29,10 @@
                     }
                     //使用Audio对象只读属性更改：播放状态及按钮文本。
                     if (oAudio.paused) {
-                        oAudio.addEventListener('canplaythrough',bgmFadeinPlay(), false);
+                        oAudio.addEventListener('canplaythrough', bgmFadeinPlay(), false);
                         btn.textcontent = "播放";
                     } else {
-                        oAudio.addEventListener('canplaythrough',bgmFadeoutPlay(), false);
+                        oAudio.addEventListener('canplaythrough', bgmFadeoutPlay(), false);
                         btn.textcontent = "暂停";
                     }
                 }
@@ -41,28 +43,37 @@
             }
         }
 
+        // 背景乐淡入
         function bgmFadeinPlay() {
-            oAudio.volume = 0. 5;
+            oAudio.volume = 0.05;
             oAudio.play();
-//            setTimeout(function(){
-//                oAudio.volume = 1;
-//                console.log(volume);
-//                },3000);
-            while(oAudio.volume>=0.05 && oAudio.volume<=0.95){
-                var audioTimeout = setTimeout(function(){
-                        oAudio.volume += 0.045;
-                    console.log(volume);
-                },100);
-            }
-            console.log(volume);
-            console.log("in bgmFadeinPlay fun");
+            interval_1 = setInterval(function () {
+                if (oAudio.volume >= 0.05 && oAudio.volume <= 0.95){
+                    oAudio.volume += 0.045;
+                }else{
+                    oAudio.volume = 0.95;
+                    clearInterval(interval_1);
+                }
+            }, 100);
+        }
+        //背景音乐淡出
+        function bgmFadeoutPlay() {
+            interval_2 = setInterval(function () {
+                if (oAudio.volume >= 0.05 && oAudio.volume <= 1){
+                    oAudio.volume -= 0.045;
+                }else{
+                    clearInterval(interval_2);
+                    oAudio.pause();
+                }
+            }, 100);
         }
 
-        function bgmFadeoutPlay() {
-            console.log("in bgmFadeoutPlay fun");
-            oAudio.volume = 1;
-            oAudio.pause();
-        }
+        //        var IntervalFun;
+        //        function getInterval(){
+        //            var IntervalFun = setInterval("console.log('every 2s do');",2000);
+        //            return IntervalFun;
+        //        }
+        //        var o = getInterval();
     </script>
 </head>
 <body>
@@ -71,4 +82,3 @@
 <button id="play" onclick="playAudio();">播放</button>
 </body>
 </html>
-

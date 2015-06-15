@@ -10,6 +10,7 @@
     <p>Recommendation:{{needed}}</p>
     <button>Fund my startup!</button>
     <button ng-click="reset()">Reset</button>
+    <button ng-click="gotoBaidu()">gotoBaidu</button>
 </form>
 </body>
 </html>
@@ -23,11 +24,20 @@
                 };
                 $scope.$watch('startingEstimate',$scope.computeNeeded);
                 $scope.requestFunding = function () {
-                    alert("in submit Sorry, please get more customers first.");
+                    //alert("in submit Sorry, please get more customers first.");
+                    if(!confirm("确认要提交？")){
+                        return false;   //取消则退出requestFunding（）提交方法
+                    }
+//                    window.location.href='http://www.ddhbb.com'; //确定则跳转
+//                    window.open ('../day3/Customers_JSON.php');//打开新窗口
+                    window.open ('../day3/Customers_JSON.php', 'newwindow', 'height=100, width=400, top=100, left=100, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no')
                 };
                 $scope.reset = function(){
                     $scope.startingEstimate = 0;
                     alert("in reset");
                 };
+                $scope.gotoBaidu = function(){
+                    window.location.href='http://www.ddhbb.com';
+                }
             });
 </script>
