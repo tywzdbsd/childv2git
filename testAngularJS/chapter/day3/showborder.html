@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="animationApp" ng-controller="animationAppController">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>show animation</title>
+    <link rel="stylesheet" href="../../assets/css/animate.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/main.css"/>
+    <script src="../../assets/js/angular.min.js"></script>
+</head>
+<body>
+<div class="div-showborder-1 rotate">
+    <div>123,年轻就要转起来！</div>
+</div>
+<div class="div-showborder-2 rotate-delay2s">
+    <div>123,年轻就要转起来！</div>
+</div>
+
+<div class="div-showborder-2 {{class_animation_1}}">
+    <div>123,年轻就要转起来！</div>
+</div>
+<div class="div-showborder-2 {{class_animation_1}}">
+    <div>123,年轻就要转起来！</div>
+</div>
+<div class="div-showborder-2 {{class_animation_1}}">
+    <div>123,年轻就要转起来！</div>
+</div>
+<div class="div-showborder-2 ">
+    <div>123,年轻就要转起来！</div>
+</div>
+<div class="div-showborder-2 ">
+    <div>123,年轻就要转起来！</div>
+</div>
+<div class="div-showborder-2 ">
+    <div>123,年轻就要转起来！</div>
+</div>
+
+
+</body>
+</html>
+<script>
+    angular.module("animationApp", [])
+            .controller("animationAppController", function ($scope, $interval) {
+                var timer = $interval(function(){
+                    console.log(getScrollTop());
+                    var top = getScrollTop();
+                    if (top >= 460) {
+                        $scope.class_animation_1 = "rotate";
+                    }
+                }, 100);
+
+            });
+
+    function getScrollTop() {
+        var scrollTop = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+            scrollTop = document.documentElement.scrollTop;
+        } else if (document.body) {
+            scrollTop = document.body.scrollTop;
+        }
+        return scrollTop;
+    }
+</script>
