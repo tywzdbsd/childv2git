@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="animationApp" ng-controller="animationAppController">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>show animation</title>
+    <link rel="stylesheet" href="../../assets/css/animate.min.css"/>
+    <link rel="stylesheet" href="../../assets/css/main.css"/>
+    <link rel="stylesheet" href="../../assets/css/main.css"/>
+    <script src="../../assets/js/angular.min.js"></script>
+</head>
+<body>
+<div class="showborder rotate">
+    <div>123,年轻就要转起来！</div>
+</div>
+
+<div class="showborder rotate ">
+    <div>123,年轻就要转起来！</div>
+</div>
+
+<div class="page-2 showborder">
+    <div>123,年轻就要转起来！</div>
+</div>
+
+<div class="page-2 showborder">
+    <div>123,年轻就要转起来！</div>
+</div>
+
+<div class="page-2 showborder">
+    <div>123,年轻就要转起来！</div>
+</div>
+
+<div class="showborder ">
+    <div>123,年轻就要转起来！</div>
+</div>
+
+<div class="showborder ">
+    <div>123,年轻就要转起来！</div>
+</div>
+
+<div class="showborder ">
+    <div>123,年轻就要转起来！</div>
+</div>
+
+
+</body>
+</html>
+<script>
+    angular.module("animationApp", [])
+            .controller("animationAppController", function ($scope, $interval) {
+                var timer = $interval(function(){
+                    var top = getScrollTop();
+                    if (top >= 460) {
+                        $interval.cancel(timer);
+//                        var o = document.getElementsByClassName("page-2");
+//                        angular.element(o[0]).addClass("rotate");
+//                        angular.element(o[1]).addClass("rotate").addClass("delay-1s");
+//                        angular.element(o[2]).addClass("rotate").addClass("delay-2s");
+                    $(".page-2:eq(0)").addClass("rotate");
+                    $(".page-2:eq(1)").addClass("rotate").addClass("delay-1s");
+                    $(".page-2:eq(2)").addClass("rotate").removeClass("page-2");
+                }
+                }, 100);
+            });
+
+    function getScrollTop() {
+        var scrollTop = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+            scrollTop = document.documentElement.scrollTop;
+        } else if (document.body) {
+            scrollTop = document.body.scrollTop;
+        }
+        return scrollTop;
+    }
+
+</script>
+<script src="../../assets/js/jquery-1.8.3.min.js"></script>
