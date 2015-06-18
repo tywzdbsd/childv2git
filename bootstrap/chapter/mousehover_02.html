@@ -1,0 +1,109 @@
+<html>
+    <head lang="zh-cn">
+        <meta charset="UTF-8">
+    </head>
+<style type="text/css" >
+    body{
+        margin:0px;
+        padding:0px;
+    }
+
+    li{
+    }
+    a{
+        display:block;
+    }
+    a:link,a:visited  {
+        text-decoration: none;
+        color:#000000;
+    }
+    .menu{
+        margin:0px auto;
+        width:404px;
+        height:21px;
+    }
+    .menu ul{
+        margin:0px;
+        padding:0px;
+    }
+    .menu ul li{
+        position:relative;
+        float:left;
+        list-style:none;
+        padding:2px;
+        border:1px dotted;
+        font-size:14px;
+        width:95px;
+        text-align: center;
+        margin:0px;
+
+        background:#999999;
+    }
+    .menu ul li ul{
+        display:none;
+    }
+    .menu ul li:hover ul{
+        display:block;
+        position: absolute; left: 0px; top: 21px;
+    }
+    .menu a:link{
+
+    }
+    .menu a:hover{
+
+    }
+
+
+</style>
+<body>
+<p>下面是一个导航条</p>
+<div class="menu">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">新闻中心</a>
+            <ul>
+                <li><a href="1#">新手入门</a></li>
+                <li><a href="2#">视频教程</a></li>
+                <li><a href="3#">常见问题</a></li>
+            </ul>
+        </li>
+        <li><a href="#">学习课程</a>
+            <ul>
+                <li><a href="1#">新手入门</a></li>
+                <li><a href="2#">视频教程</a></li>
+                <li><a href="3#">常见问题</a></li>
+            </ul>
+        </li>
+        <li><a href="#">联系我们</a></li>
+    </ul>
+</div>
+</body>
+</html>
+
+<!--
+我简单的说一下思路：
+首先用ul下面嵌套一个ul。。外面的是第一层栏目列表，嵌套的是第二个。
+
+首先定义嵌套的ul不显示
+.menu ul li ul{
+display:none;
+}
+当鼠标划过li的时候下面的ul显示出来
+.menu ul li:hover ul{
+display:block;
+}
+这样就可以了，但是我们发现显示出来的二级栏目不是我们想要的位置，那么对它进行绝对定位
+.menu ul li:hover ul{
+display:block;
+position: absolute; left: 0px; top: 21px;
+}
+因为绝对定位的元素的位置相对于最近的已定位祖先元素。所以它外面的li设置一个相对定位
+.menu ul li{
+position:relative;
+}
+这样效果就出来了。其他的属性都是一些调整了，在一些低版本的浏览器中会失效，（特别低级的）
+追问：
+= =ie6会失效么。。
+追答：
+在IE7+及FF浏览器中，:hover伪类可以用于任何对象，但在IE5、IE6中，:hover伪类仅能用于a（超链接）对象，且该a对象必须要拥有href属性。
+-->

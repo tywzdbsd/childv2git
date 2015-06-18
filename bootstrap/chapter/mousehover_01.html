@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR
+/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GB2312"/>
+    <meta name="Author" content="Aultoale"/>
+    <style type="text/CSS">
+        body {
+            font: normal 12px Verdana
+        }
+
+        a#tip {
+            position: relative;
+            left: 75px;
+            font-weight: bold;
+        }
+
+        a#tip:link, a#tip:hover {
+            text-decoration: none;
+            color: #000;
+            display: block
+        }
+
+        a#tip span {
+            overflow:hidden;
+            z-index: -1;
+            display: block;
+            text-decoration: none;
+        }
+
+        a#tip:visited {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        a#tip #tip_info{
+            height:20px;
+            -webkit-transition: height 2s ease;
+            transition: height 2s ease;
+        }
+
+        a#tip:hover #tip_info {
+            height:200px;
+            display: block;
+            border: 1px solid #F96;
+            background: #FFEFEF;
+            padding: 10px 20px;
+            position: absolute;
+            top: 0px;
+            left: 90px;
+            color: #009933
+        }
+    </style>
+</head>
+<body>
+<a id="tip" href="#">
+    移到这里试试!
+    <span id="tip_info">这里是提示信息!</span>
+</a>
+</body>
+</html>

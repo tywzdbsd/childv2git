@@ -2,18 +2,26 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>bootstrap下拉菜单范例</title>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/animation.css"/>
 </head>
 <body>
-<!--<div class="dropdown">-->
-<!--<a data-toggle="dropdown" href="#">下拉菜单（Dropdown）触发器</a>-->
-<!--<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">-->
-<!--<li>1</li>-->
-<!--<li>2</li>-->
-<!--<li>3</li>-->
-<!--</ul>-->
-<!--</div>-->
+<nav class="nav navbar-default">
+    <li class="dropdown">
+        <a href="#"  class="dropdown-toggle"
+           data-toggle="dropdown">Android
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a></li>
+            <li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a></li>
+        </ul>
+    </li>
+</nav>
+
+
 <nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
         <a class="navbar-brand">w3cschool</a>
@@ -24,19 +32,23 @@
             <li><a href="#">SVN</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <!--
+                    data-hover="dropdown"加上以后只能用hover来弹出，所以这里不加
+                    Bootstrap的导航条下拉菜单为了适应移动设备没有鼠标hover的状态，
+                    都是点击弹出下拉菜单，为了适应一般网站使用，我稍作了一些修改，
+                    鼠标hover时就弹出二级菜单
+                    -->
                     JAVA
                     <b class="caret"></b>
                 </a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-menu">
-                        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">jmeter</a>-->
-                    </li>
+                <ul class="dropdown-menu animated ">
+                    <li><a href="#">jmeter</a></li>
                     <li><a href="#">EJB</a></li>
                     <li><a href="#">Jasper Report</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">分离的链接</a></li>
+                    <li><a href="#">分离的链接还会</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">另一个分离链接</a></li>
+                    <li><a href="#" >另一个分离链接</a></li>
                 </ul>
             </li>
         </ul>
@@ -48,6 +60,6 @@
 <script src="../js/bootstrap.min.js"></script>
 <script>
     $(function () {
-        $(".dropdown-toggle").dropdown("toggle");
+//        $(".dropdown-toggle").dropdown("toggle");
     });
 </script>

@@ -1,3 +1,35 @@
 .text-align-left{
     text-align:left !important;
 }
+
+.text-align-right{
+    text-align:right !important;
+}
+
+.display{
+    display:block;
+}
+
+.nav.navbar-nav > li.dropdown > .dropdown-menu{
+    display:none;
+    -webkit-transition:2s ease;
+    -webkit-transition-property:all;
+    overflow: hidden;
+}
+
+.nav.navbar-nav > li.dropdown:hover > .dropdown-menu{
+    display: block;
+}
+
+/*.show-dropdown-menu{*/
+    /*-webkit-transition:0.5s ease;*/
+    /*-webkit-transition-property:all;*/
+/*}*/
+
+/*.show-dropdown-menu:hover{*/
+
+/*}*/
+
+
+
+

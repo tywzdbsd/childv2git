@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Bootstrap 实例 - 进度条</title>
+    <link href="" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+
+</head>
+<body>
+
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="80"
+         aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+        <span class="sr-only">80%完成</span>
+    </div>
+</div>
+<a>try</a>
+</body>
+</html>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script>
+    var progressValue = 80;
+    var timer;
+    $(function () {
+        timer = setInterval(function () {
+            progressValue += 1;
+            $(".progress-bar").css("width", progressValue + "%");
+            if (progressValue >= 10 || progressValue <= 0) {
+                clearInterval(timer);
+            }
+            console.log(progressValue);
+        }, 100);
+    });
+
+</script>
