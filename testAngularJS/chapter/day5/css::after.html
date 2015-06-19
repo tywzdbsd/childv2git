@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>伪类妙用:鼠标悬停时前后出现括号（或者引号）</title>
+    <style>
+        html {
+            font-size: 14px;
+            font-family:Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', Arial, sans-serif;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(211, 211, 211, 1);
+        }
+
+        p:before {
+            content: open-quote;
+            float: left;
+            width: 35px;
+            border-radius: 35px;
+            color: #fff;
+            content: open-quote;
+            text-align: center;
+            line-height: 35px;
+            background-color: rgba(140, 140, 140, 1);
+        }
+
+        p {
+            float: left;
+            margin: 0 25%;
+            width: 50%; /*有，则宽度大之后字和引号分开；无，则字和引号紧贴*/
+            font-size: 25px;
+            text-align: center;
+            line-height: 35px;
+        }
+
+        p:after {
+            float: right;
+            width: 35px;
+            border-radius: 35px;
+            color: #fff;
+            content: "吃";
+            text-align: center;
+            line-height: 35px;
+            background-color: rgba(140, 140, 140, 1);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <p>这位仁兄是一位吃货，技术宅，专业逗比！</p>
+
+    <div style="clear:both;"></div>
+</div>
+</body>
+</html>
