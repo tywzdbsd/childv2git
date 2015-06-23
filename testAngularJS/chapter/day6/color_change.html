@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /* nav */
+        .nav {
+            /*position: fixed;*/
+            /*top: 0;*/
+            /*left: 0;*/
+            /*z-index: 2;*/
+            width: 100%;
+            height: 80px;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .nav .wrap {
+            position: relative;
+            margin: 0 auto;
+            width: 1000px;
+            height: 100%;
+            background-color: #fff;
+        }
+
+        .nav .wrap img {
+            cursor: pointer;
+            display: inline-block;
+            height: 100%;
+        }
+
+        .nav .wrap ul {
+            position: absolute;
+            display: inline-block;
+            right: 0;
+        }
+
+        .nav .wrap ul li {
+            display: inline-block;
+            padding: 0 14px 0 10px;
+            font-size: 18px;
+            line-height: 80px;
+            background: url("../images/line.gif") no-repeat right center;
+            background-color: #fff;
+            -webkit-transition: background-color 1.5s 0s ease;
+
+        }
+
+        .nav .wrap ul li:hover {
+            cursor: pointer;
+            background-color: #708df4;
+        }
+
+        /*.nav .wrap ul .end-li {*/
+            /*background-color: #81f479;*/
+        /*}*/
+        /* Bob */
+        @-webkit-keyframes hvr-bob {
+            0% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+
+            50% {
+                -webkit-transform: translateY(-4px);
+                transform: translateY(-4px);
+            }
+
+            100% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes hvr-bob {
+            0% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+
+            50% {
+                -webkit-transform: translateY(-4px);
+                transform: translateY(-4px);
+            }
+
+            100% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+        }
+
+        @-webkit-keyframes hvr-bob-float {
+            100% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes hvr-bob-float {
+            100% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+        }
+
+        .hvr-bob li{
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .hvr-bob  li:hover, .hvr-bob li:focus, .hvr-bob li:active {
+            -webkit-animation-name: hvr-bob-float, hvr-bob;
+            animation-name: hvr-bob-float, hvr-bob;
+            -webkit-animation-duration: .3s, 1.5s;
+            animation-duration: .3s, 1.5s;
+            -webkit-animation-delay: 0s, .3s;
+            animation-delay: 0s, .3s;
+            -webkit-animation-timing-function: ease-out, ease-in-out;
+            animation-timing-function: ease-out, ease-in-out;
+            -webkit-animation-iteration-count: 1, infinite;
+            animation-iteration-count: 1, infinite;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-direction: normal, alternate;
+            animation-direction: normal, alternate;
+        }
+
+    </style>
+</head>
+<body>
+<header class="nav">
+    <div class="wrap">
+        <img src="./assets/images/logo.png" alt="月球出差中~"/>
+        <ul class="nav-bar hvr-bob">
+            <li ng-click="goIndex()">首页</li>
+            <li>解决方案</li>
+            <li>招贤纳才</li>
+            <li>关于我们</li>
+            <li class="end-li">联系方式</li>
+        </ul>
+    </div>
+</header>
+</body>
+</html>
+<script>
+    var tt =
+    tt.addEventListener("webkitTransitionEnd", function(){ //动画开始时事件
+        console.log("1");//渐变时，控制台输出1
+    }, false);
+</script>
