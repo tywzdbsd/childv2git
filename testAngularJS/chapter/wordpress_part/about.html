@@ -4,10 +4,161 @@
     <meta charset="UTF-8">
     <title>about us</title>
     <style>
+        body {
+            word-wrap: break-word;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+
+        div.company > p.introduce{
+            margin: 0 auto;
+            width: 84%;
+            font-size: 1.5em;
+        }
+
+        .team{
+            margin-top: 40px;
+        }
+
+        .team ul{
+            overflow:hidden;
+        }
+
+        .team ul li {
+            float: left;
+            width:33.333%;
+        }
+
+        .team ul li .circle{
+            margin:0 auto;
+            width:80%;
+            max-width: 200px;
+            line-height: 0;
+            -moz-border-radius: 50%;       /*Gecko browsers*/
+            -webkit-border-radius: 50%;    /*Webkit browsers*/
+            border-radius:50%;             /*W3C syntax*/
+            overflow: hidden;
+        }
+
+        .team ul li .circle img{
+            width: 100%;
+        }
+
+        .team ul li span{
+            margin:0 auto;
+        }
+
+        .title{
+            text-align: center;
+            font-size: 2.5em;
+            line-height: 3;
+        }
+        
+        .name{
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.5em;
+        }
+
+        .team-welcom{
+            padding-top:40px;
+        }
+
+        .team-welcom .space{
+            position: relative;
+            left: 35%;
+            width: 30%;
+            margin: 0 auto;
+        }
+
+        .team-welcom .say-contactus{
+            margin:0 auto;
+            width:50%;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+
+        a{
+            color: #000;
+            text-decoration:none;
+        }
+
+        a:hover{
+            color: #5e93f5;
+        }
 
     </style>
 </head>
 <body>
+<div class="company">
+    <p class="title">公司介绍
+    </p>
+    <p class="introduce"> 岩泽网络科技是一家新锐、专业、专注移动互联网的互联网公司。
+        在这里，您的移动互联网创意将被插上翅膀，飞到每个用户手中，您的商业成就是我们最大的满足。</p>
+</div>
 
+<div class="team">
+    <p class="title">团队成员</p>
+    <ul class="ul-team">
+        <li class="member">
+            <div class="circle">
+                <img src="../../assets/images/yun.png" alt=""/>
+            </div>
+            <p class="name">无名侠士</p>
+        </li>
+        <li class="member">
+            <div class="circle">
+                <img src="../../assets/images/yun.png" alt=""/>
+            </div>
+            <p class="name">无名侠士</p>
+        </li>
+        <li class="member">
+            <div class="circle">
+                <img src="../../assets/images/yun.png" alt=""/>
+            </div>
+            <p class="name">无名侠士</p>
+        </li>
+        <li class="member">
+            <div class="circle">
+                <img src="../../assets/images/yun.png" alt=""/>
+            </div>
+            <p class="name">无名侠士</p>
+        </li>
+        <li class="member">
+            <div class="circle">
+                <img src="../../assets/images/yun.png" alt=""/>
+            </div>
+            <p class="name">无名侠士</p>
+        </li>
+        <li class="member">
+            <div class="circle">
+                <img src="../../assets/images/yun.png" alt=""/>
+            </div>
+            <p class="name">无名侠士</p>
+        </li>
+        <li class="member">
+            <div class="circle">
+                <img src="../../assets/images/yun.png" alt=""/>
+            </div>
+            <p class="name">无名侠士</p>
+        </li>
+    </ul>
+</div>
+
+<div class="team-welcom">
+    <img class="space" src="../../assets/images/space.png" alt=""/>
+    <p class="say-contactus">世界之大,相逢即是有缘。在这里，我们不停奔跑，我们不断收获，让用户满意，也让自己成长，我们在这里等你。</p>
+    <p class="say-contactus">还等什么，快来联系我们吧！</p>
+    <p class="say-contactus">><a href="mailto:233634790@qq.com" target="_blank">233634790@qq.com</a></p>
+</div>
 </body>
 </html>
