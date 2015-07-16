@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div ng-app="" ng-controller="personController">
+    <botton ng-click="toggle()">显/隐</botton>
+
+    <!--ng-show ng-hide相似，都是操作display-->
+    <p ng-show="myVar">
+        名: <input type=text ng-model="person.firstName"><br>
+        姓: <input type=text ng-model="person.lastName"><br><br>
+        姓名: {{person.firstName + " " + person.lastName}}
+    </p>
+</div>
+
+<script>
+    function personController($scope) {
+        $scope.person = {
+            firstName: "John",
+            lastName: "Doe"
+        };
+        $scope.myVar = true;
+        $scope.toggle = function () {
+            $scope.myVar = !$scope.myVar;   //切换true or false
+        }
+    }
+</script>
+<script src="http://apps.bdimg.com/libs/angular.js/1.2.15/angular.min.js"></script>
+</body>
+</html>

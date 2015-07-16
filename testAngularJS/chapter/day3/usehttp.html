@@ -8,7 +8,7 @@
 <div>
     <ul>
         <li ng-repeat="x in names">
-            aa{{ x.Name + ','+x.Country }}
+            aa{{ x.name + ','+x.age }}
         </li>
     </ul>
 </div>
@@ -16,16 +16,22 @@
 </html>
 <script>
     angular.module("usehttpApp", [])
-            .controller("customerController", function ($scope, $http,$interval) {
-                $http.get("Customers_JSON.php")
+            .controller("customerController", function ($scope, $http, $interval) {
+                $http.get("http://192.168.0.101:3000/userinfo")
                         .success(
-                            function (data) {
-                                $scope.names = data;
-                            }
-                        );
+                        function (data) {
+                            console.log(data)
+//                            $scope.names = data;
+                        }
+                )
+                        .error(
+                        function (data) {
+                            alert("error");
+                        }
+                );
                 $interval(function () {
                     console.log("test");
-                },1000);
+                }, 1000);
 
 //                myUrl = "http://www.w3cschool.cc/try/angularjs/data/Customers_JSON.php";
 //                $http.get(myUrl)

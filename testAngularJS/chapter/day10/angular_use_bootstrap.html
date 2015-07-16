@@ -1,0 +1,186 @@
+<!--页面使用bootstrap-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="http://apps.bdimg.com/libs/angular.js/1.2.15/angular.min.js"></script>
+    <!--<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body ng-controller="userController">
+<div class="container">
+    <h3>用户列表</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>编辑</th>
+            <th>名字</th>
+            <th>姓氏</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+            <td>
+                <button class="btn" ng-click="editUser(user.id)">
+                    <span class="glyphicon glyphicon-pencil"></span>编辑
+                </button>
+            </td>
+            <td>{{user.fName}}</td>
+            <td>{{user.lName}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <hr/>
+    <button class="btn btn-success" ng-click="editUser('new')">
+        <span class="glyphicon glyphicon-user"></span>创建新用户
+    </button>
+    <hr/>
+
+    <h3 ng-hide="edit">创建新用户:</h3>
+
+    <h3 ng-show="edit">编辑用户:</h3>
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">名:</label>
+
+            <div class="col-sm-10">
+                <input type="text" ng-model="fName" ng-disabled="edit" placeholder="名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">姓:</label>
+
+            <div class="col-sm-10">
+                <input type="text" ng-model="lName" ng-disabled="edit" placeholder="姓">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">密码:</label>
+
+            <div class="col-sm-10">
+                <input type="password" ng-model="passw1" placeholder="密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">重复密码:</label>
+
+            <div class="col-sm-10">
+                <input type="password" ng-model="passw2" placeholder="重复密码">
+            </div>
+        </div>
+        <input class="btn btn-success" type="submit" ng-click="submit()"/>
+    </form>
+</div>
+<script>
+    angular.module("myApp", [])
+            .controller("userController", function ($scope) {
+                $scope.fName = '';
+                $scope.lName = '';
+                $scope.passw1 = '';
+                $scope.passw2 = '';
+
+                $scope.users = [{
+                    id: 1,
+                    fName: "jack",
+                    lName: "white"
+                }, {
+                    id: 2,
+                    fName: "mike",
+                    lName: "smith"
+                }, {
+                    id: 3,
+                    fName: "john",
+                    lName: "wood"
+                }];
+
+                $scope.isEdit = false;  //编辑状态位，初始是创建新用户
+
+                $scope.editUser = function (id) {
+                    if (id == 'new') {
+                        $scope.isEdit = false;
+                        $scope.fName = '';
+                        $scope.lName = '';
+                    } else {
+                        $scope.isEdit = true;
+                        $scope.fName = $scope.users[id - 1].fName;
+                        $scope.lName = $scope.users[id - 1].lName;
+                    }
+                };
+
+                $scope.$watch('passw1', function () {
+                    $scope.test();
+                });
+                $scope.$watch('passw2', function () {
+                    $scope.test();
+                });
+                $scope.$watch('fName', function () {
+                    $scope.test();
+                });
+                $scope.$watch('lName', function () {
+                    $scope.test();
+                });
+
+
+                $scope.islNameNotNull = function () {
+                    if ($scope.lName.length > 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+                $scope.isfNameNotNull = function () {
+                    if ($scope.fName.length > 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+                $scope.ispassw1NotNull = function () {
+                    if ($scope.passw1.length > 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+                $scope.ispassw2NotNull = function () {
+                    if ($scope.passw2.length > 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+                $scope.isPwdEqual = function () {
+                    if ($scope.passw1 == $scope.passw2) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+
+                $scope.submit = function () {
+
+                    if (!$scope.isEdit) {
+                        //创建新用户提交
+                        if ($scope.islNameNotNull() && $scope.isfNameNotNull() && $scope.ispassw1NotNull() && $scope.ispassw2NotNull() && $scope.isPwdEqual()) {
+                            alert("new success");
+                        }
+                    } else {
+                        //编辑后提交
+                        if ($scope.islNameNotNull() && $scope.isfNameNotNull()) {
+                            alert("update success");
+                        }
+                    }
+                }
+
+            });
+
+</script>
+</body>
+</html>

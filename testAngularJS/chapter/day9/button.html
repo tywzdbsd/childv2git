@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        button {
+            width: 4rem;
+            height: 1.5rem;
+            margin-top: .5rem;
+            border: 1px solid #ff0648;
+            background-color: #fff;
+            color: #ff0648;
+            border-radius: 6px;
+            outline:none;
+        }
+
+        button:active{
+            background-color: #22beff;
+        }
+    </style>
+</head>
+<body>
+<button class="btn-attention" ng-show="!isSelf" ng-click="addAttention()">+关注</button>
+</body>
+</html>

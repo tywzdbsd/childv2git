@@ -2,9 +2,125 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>about us</title>
+    <style>
+        body {
+            color: #6B6B6B;
+            word-wrap: break-word;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .underline-style-parent {
+            margin: 15px auto;
+            width: 38%;
+            border-bottom: 1px solid #999;
+            font-size: 2.5em;
+        }
+
+        .underline-style-child {
+            display: block;
+            text-align: center;
+            width: 63%;
+            margin: 0 auto;
+            line-height: 40px;
+            border-bottom: 3px solid #9ddbff;
+        }
+
+        .job-include {
+            margin-top: 40px;
+        }
+
+        .job-include ul {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .job-include ul li {
+            float: left;
+            width: 33.333%;
+        }
+
+        .job-include ul li .circle {
+            margin: 0 auto;
+            width: 80%;
+            max-width: 200px;
+            line-height: 0;
+            -moz-border-radius: 50%; /*Gecko browsers*/
+            -webkit-border-radius: 50%; /*Webkit browsers*/
+            border-radius: 50%; /*W3C syntax*/
+            overflow: hidden;
+        }
+
+        .job-include ul li .circle img {
+            width: 100%;
+        }
+
+        .job-include ul li .say {
+            text-align: center;
+            line-height: 40px;
+            font-size: 1.5em;
+        }
+
+        .job-contact {
+            margin-top: 40px;
+        }
+
+        .job-contact  .underline-style-parent p {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .job-contact .say-contactus{
+            text-align: center;
+        }
+
+        .job-contact .say-contactus a{
+            font-size: 1.5em;
+            color: #000;
+            text-decoration:none;
+        }
+
+        .job-contact .say-contactus a:hover{
+            color: #5e93f5;
+        }
+    </style>
 </head>
 <body>
+<div class="underline-style-parent"><p class="underline-style-child">如果你想要~</p></div>
+<div class="job-include">
+    <ul>
+        <li>
+            <div class="circle">
+                <img src="../../assets/images/yun.png" alt=""/>
+            </div>
+            <p class="say">挑战高薪</p>
+        </li>
 
+        <li>
+            <div class="circle">
+                <img src="../../assets/images/yun.png" alt=""/>
+            </div>
+            <p class="say">轻松氛围</p>
+        </li>
+
+        <li>
+            <div class="circle">
+                <img src="../../assets/images/yun.png" alt=""/>
+            </div>
+            <p class="say">快速成长</p>
+        </li>
+    </ul>
+</div>
+
+<div class="job-contact">
+    <div class="underline-style-parent"><p class="underline-style-child">加入我们</p></div>
+    <p class="say-contactus"><a href="mailto:233634790@qq.com" target="_blank">↪233634790@qq.com</a></p>
+</div>
 </body>
 </html>

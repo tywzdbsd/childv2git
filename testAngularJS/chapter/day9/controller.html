@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div ng-app="" ng-controller="personController">
+    名：<input type="text" ng-model="person.firstName"/>
+    姓：<input type="text" ng-model="person.lastName"/>
+    <br/>
+    姓名：{{person.firstName +""+person.lastName}}
+    <br/>
+    姓名：{{person.fullName()}}
+    <br/>
+    姓名：{{fullName()}}
+</div>
+<!--控制器可以存在外部文件xx.js中-->
+<script>
+    function personController($scope) {
+        //控制器也可以把函数作为对象属性
+        $scope.person = {
+            firstName: "John",
+            lastName: "Doe",
+            fullName: function () {
+                var x;
+                x = $scope.person;
+                return "(use function as attribute)"+x.firstName + "" + x.lastName;
+            }
+        };
+        //控制器也可以带方法
+        $scope.fullName = function () {
+            var x;
+            x = $scope.person;
+            return "(use function in controller)"+x.firstName + "" + x.lastName;
+        };
+    }
+</script>
+<script src="//www.runoob.com/try/angularjs/1.2.5/angular.min.js"></script>
+</body>
+</html>
