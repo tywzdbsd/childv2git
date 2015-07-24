@@ -1,0 +1,222 @@
+<!--事件注册，class操作，异步函数写法-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div-style-1 {
+            position:relative;
+            width: 400px;
+            height: 400px;
+            background-color: #22beff;
+            font-size: 50px;
+            -webkit-transition: all 1s  0s ease ;
+            -moz-transition: all 1s 0s  ease ;
+            transition: all 1s  0s ease ;
+        }
+
+        .div-style-2 {
+            position:relative;
+            width: 500px;
+            height: 500px;
+            background-color: #22beff;
+            font-size: 50px;
+            -webkit-transition: all 1s  0s ease;
+            -moz-transition: all 1s 0s ease;
+            transition: all 1s 0s ease;
+        }
+
+        .nav-font-color {
+            color: #bb4939;
+        }
+    </style>
+</head>
+<body>
+<div class="div-style-1" id="div1"></div>
+
+<script>
+    var element = document.getElementById("div1");
+    element.innerHTML = "touch here";
+
+    //绑定三个方法，执行第三个
+    //    element.onclick = welcom1;
+    //    element.onclick = welcom2;
+    //    element.onclick = welcom3;
+
+    //ie中绑定事件
+    //    element.attachEvent("onclick", welcom1);
+    //    element.attachEvent("onclick", welcom2);
+    //    element.attachEvent("onclick", welcom3);
+    //执行顺序:welcom3->welcom2->welcom1
+
+    //chrome、火狐、其他浏览器中绑定事件
+    //    element.addEventListener("click", welcom1, false);
+    //    element.addEventListener("click", welcom2, false);
+    //    element.addEventListener("click", welcom3, false);
+    //执行顺序:welcom1->welcom2->welcom3
+
+
+    //通用添加事件函数
+    //    function addEvent(elm, evType, fn, useCapture) {
+    //        if (elm.addEventListener) {
+    //            elm.addEventListener(evType, fn, useCapture);
+    //            return true;
+    //        } else if (elm.attachEvent) {
+    //            var r = elm.attachevent('on' + evType, fn);
+    //            return r;
+    //        } else {
+    //            elm['on' + evType] = fn;
+    //        }
+    //    }
+
+    //html5工作组实现添加事件方法，可以连续添加事件监听
+    var addEvent = (function () {
+        if (document.addEventListener) {
+            return function (el, type, fn) {
+                if (el.length) {
+                    for (var i = 0; i < el.length; i++) {
+                        addEvent(el[i], type, fn);
+                    }
+                    ;
+                } else {
+                    el.addEventListener(type, fn, false);
+                }
+            };
+        } else {
+            return function (el, type, fn) {
+                if (el.length) {
+                    for (var i = 0; i < el.length; i++) {
+                        addEvent(el[i], type, fn);
+                    }
+                } else {
+                    el.attachEvent('on' + type, function () {
+                        return fn.call(el, window.event);
+                    });
+                }
+            };
+        }
+    })();
+
+    //判断是否为pc，是：true；false：false
+    function isPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    function addClass(obj, cls){
+        var obj_class = obj.className,//获取 class 内容.
+                blank = (obj_class != '') ? ' ' : '';//判断获取到的 class 是否为空, 如果不为空在前面加个'空格'.
+        added = obj_class + blank + cls;//组合原来的 class 和需要添加的 class.
+        obj.className = added;//替换原来的 class.
+    }
+
+    function removeClass(obj, cls){
+        var obj_class = ' '+obj.className+' ';//获取 class 内容, 并在首尾各加一个空格. ex) 'abc        bcd' -> ' abc        bcd '
+        obj_class = obj_class.replace(/(\s+)/gi, ' '),//将多余的空字符替换成一个空格. ex) ' abc        bcd ' -> ' abc bcd '
+                removed = obj_class.replace(' '+cls+' ', ' ');//在原来的 class 替换掉首尾加了空格的 class. ex) ' abc bcd ' -> 'bcd '
+        removed = removed.replace(/(^\s+)|(\s+$)/g, '');//去掉首尾空格. ex) 'bcd ' -> 'bcd'
+        obj.className = removed;//替换原来的 class.
+    }
+
+    function hasClass(obj, cls){
+        var obj_class = obj.className,//获取 class 内容.
+                obj_class_lst = obj_class.split(/\s+/);//通过split空字符将cls转换成数组.
+        x = 0;
+        for(x in obj_class_lst) {
+            if(obj_class_lst[x] == cls) {//循环数组, 判断是否包含cls
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //自定义方法welcom1
+    function welcom1(e) {
+        console.log("welcom to our family 1");
+        e.target.style.background = "#cccccc";
+        console.log(e.target.className); //显示元素classname
+        if(hasClass(e.target,"div-style-1"))    console.log("yes,has div-style-1!");
+        e.target.className = "div-style-2"; //改变元素classname
+        //添加class？
+        e.target.className += " nav-font-color";
+    }
+
+    //自定义方法welcom2
+    function welcom2(e) {
+//        console.log("welcom to our family 2");
+//        e.target.style.background = "#435675";
+//        e.target.className = "div-style-2";
+    }
+
+    //自定义方法welcom3
+    function welcom3(e) {
+        console.log("welcom to our family 3");
+        e.target.style.background = "#22beff";
+        e.target.className = "div-style-1";
+    }
+
+    function pullbyone(event){
+        console.log('xx');
+        if(event.targetTouches.length == 1){
+//            event.preventDefault(); //阻止浏览器默认事件，重要
+            var touch = event.targetTouches[0];
+            //把元素放在手指所在的位置
+            element.style.left = touch.pageX-50+"px";
+            element.style.top = touch.pageY-50+"px";
+        }
+    }
+
+    //状态机
+    var touchEvent = {
+        touchstart: "touchstart",
+        touchmove: "touchmove",
+        touchend: "touchend",
+        /**
+         * @desc:判断是否pc设备，若是pc，需要更改touch事件为鼠标事件，否则默认触摸事件
+         */
+        initTouchEvents: function () {
+            if (isPC()) {
+                this.touchstart = "mousedown";
+                this.touchmove = "mousemove";
+                this.touchend = "mouseup";
+            }
+        }
+    };
+
+    //初始化是电脑还是触屏设备
+    touchEvent.initTouchEvents();
+    //添加触摸事件到某对象,用什么事件，事件触发的函数，是否捕捉
+    addEvent(element, touchEvent.touchstart, welcom1, false);
+    addEvent(element, touchEvent.touchmove, pullbyone, false);
+    addEvent(element, touchEvent.touchend, welcom3, false);
+
+    //用户离开页面时触发
+    window.onunload = function () {
+        confirm("are you sure?");
+    }
+
+    //异步函数写法
+    var f2 = function(){
+        console.log("f2 function");
+    }
+
+    function f1(callback){
+        console.log("f1 function");
+        setTimeout(function(){
+            callback();
+        },3000);
+    }
+
+    f1(f2);
+</script>
+</body>
+</html>

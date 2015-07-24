@@ -1,0 +1,20 @@
+{
+  "name": "testAngularJS",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tywzdbsd/childv2git",
+  "authors": [
+    "谈姚伟 <370464169@qq.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "spin.js": "~2.3.1",
+    "jquery": "1.11"
+  }
+}

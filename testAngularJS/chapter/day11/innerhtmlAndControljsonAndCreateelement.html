@@ -1,0 +1,44 @@
+<!--//创建元素，使用x.innerhtml，操作json字符串和json对象-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+</head>
+<body>
+<div id="div1">div default</div>
+<!--<h1 id="myHeader" onclick="getValue()">This is a header</h1>-->
+<!--<p>Click on the header to alert its value</p>-->
+<!--你看到true时就看到我了-->
+
+<script type="text/javascript">
+    function changediv1() {
+        var elementdiv = document.getElementById("div1");
+        elementdiv.innerHTML = "hi";
+    }
+    ;
+    window.onload = function () {
+        changediv1();
+    }; //页面加载后加载
+
+    //创建元素，创建json字符串和创建json对象
+    var otherdiv = document.createElement("div");
+    //    otherdiv.textContent = "test";
+    otherdiv.innerHTML = "<span style='color:red'>test1</span>";
+    document.body.appendChild(otherdiv);
+    console.log("输出outer的值：" + otherdiv.outerHTML);
+    var jsonInfoStr = '{"name": "jack","age": "25","favourite": "run"}';
+    var jsonInfo = eval("(" + jsonInfoStr + ")");
+    var jsonObj = {
+        id: 1,
+        name: "tyw",
+        age: 25
+    };
+    jsonInfo.name = "john";
+    console.log("输出json字符串进过转化的值：" + jsonInfo.name);
+    console.log("输出json对象的值：" + jsonObj.id + jsonObj.name + jsonObj.age);
+</script>
+</body>
+</html>

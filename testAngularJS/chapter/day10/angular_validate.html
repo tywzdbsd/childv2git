@@ -5,10 +5,22 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="http://apps.bdimg.com/libs/angular.js/1.2.15/angular.min.js"></script>
+    <style>
+        .redgb{
+            background-color: #fd598c;
+        }
 
+        .greenfont{
+            color:green;
+        }
+    </style>
 </head>
 <body>
+
 <form ng-app="myApp" ng-controller="myCtrl" name="myForm" novalidate>
+    <div ng-class="isRed">
+xxx
+    </div>
     <p>
         Username:</br>
         <input type="text" name="user" ng-model="username" required>
@@ -38,7 +50,7 @@
     app.controller("myCtrl", function ($scope) {
         $scope.username = "Jack Tan";
         $scope.email = 'Jack.tan@gamil.com';
-
+        $scope.isRed = "redgb greenfont";
     });
 </script>
 </body>
