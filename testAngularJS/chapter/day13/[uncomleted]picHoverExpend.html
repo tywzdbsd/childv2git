@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul class="user-msg">
+    <li class="tip">请发表你自己的文章
+</ul>
+<article class="panel panel-default archive" role="main">
+    <div class="panel-body">
+        <h3 class="page-header">投稿
+            <small>POST NEW</small>
+        </h3>
+        <form role="form" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" name="post_title" placeholder="在此输入标题" value=""
+                       aria-required='true' required>
+            </div>
+            <div class="form-group">
+                <div id="wp-post_content-wrap" class="wp-core-ui wp-editor-wrap tmce-active">
+                    <link rel='stylesheet' id='dashicons-css'
+                          href='http://7xkc9z.com1.z0.glb.clouddn.com/wp-includes/css/dashicons.min.css?ver=4.2.3'
+                          type='text/css' media='all'/>
+                    <link rel='stylesheet' id='editor-buttons-css'
+                          href='http://7xkc9z.com1.z0.glb.clouddn.com/wp-includes/css/editor.min.css?ver=4.2.3'
+                          type='text/css' media='all'/>
+                    <style>.wp-editor-container {
+                        border: 1px solid #ddd;
+                    }
+
+                    .switch-html, .switch-tmce {
+                        height: 25px !important
+                    }</style>
+                    <div id="wp-post_content-editor-tools" class="wp-editor-tools hide-if-no-js">
+                        <div id="wp-post_content-media-buttons" class="wp-media-buttons"><a href="#"
+                                                                                            id="insert-media-button"
+                                                                                            class="button insert-media add_media"
+                                                                                            data-editor="post_content"
+                                                                                            title="添加媒体"><span
+                                class="wp-media-buttons-icon"></span> 添加媒体</a>
+                            <style>
+                                .button.save_remote_images span.wp-media-buttons-icon:before {
+                                    font: 400 18px/1 dashicons;
+                                    speak: none;
+                                    -webkit-font-smoothing: antialiased;
+                                    -moz-osx-font-smoothing: grayscale;
+                                    content: '\f161';
+                                }
+
+                                #save-remote-images-button {
+                                    -webkit-transition: all .25s;
+                                    -moz-transition: all .25s;
+                                    -o-transition: all .25s;
+                                    -ms-transition: all .25s;
+                                    transition: all .25s;
+                                }
+
+                                #save-remote-images-button.success {
+                                    -webkit-transform: scale(1.1);
+                                    -moz-transform: scale(1.1);
+                                    -o-transform: scale(1.1);
+                                    -ms-transform: scale(1.1);
+                                    transform: scale(1.1);
+                                }
+
+                                ul[id^="noty_"] li {
+                                    margin-bottom: 0;
+                                }
+
+                                #noty_center_layout_container img {
+                                    vertical-align: middle;
+                                }
+                            </style>
+                            <a href="javascript:" id="save-remote-images-button" class="button save_remote_images"
+                               title="保存远程图片"><span class="wp-media-buttons-icon"></span>保存远程图片</a>
+                        </div>
+                        <div class="wp-editor-tabs">
+                            <button type="button" id="post_content-tmce" class="wp-switch-editor switch-tmce"
+                                    onclick="switchEditors.switchto(this);">可视化
+                                <tton>
+                                    <button type="button" id="post_content-html" class="wp-switch-editor switch-html"
+                                            onclick="switchEditors.switchto(this);">文本
+                                        <tton>
+                        </div>
+                    </div>
+                    <div id="wp-post_content-editor-container" class="wp-editor-container"><textarea
+                            class="form-control wp-editor-area" rows="20" autocomplete="off" cols="40"
+                            name="post_content" id="post_content"></textarea></div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <p class="help-block">选择文章分类</p><select name="post_cat[]" class="form-control">
+                <option value="13">下载</option>
+                <option value="60">影视资源</option>
+                <option value="50">文章</option>
+                <option value="9">日志</option>
+                <option value="11">相册</option>
+                <lect></div>
+            <div class="form-group">
+                <p class="help-block">文章来源或版权信息，{link}代表文章链接，{title}代表文章标题，{url}代表本站首页地址，{name}代表本站名称</p>
+                <textarea name="post_copyright" rows="2" cols="50" class="form-control"><p>除特别注明外，本站所有文章均为<a
+                        href="{url}" title="{name}" target="_blank">{name}</a>原创，转载请注明出处来自<a href="{link}"
+                                                                                             title="{title}">{link}</a>
+                </p></textarea>
+            </div>
+            <div class="form-group text-right">
+                <select name="post_status">
+                    <option value="pending">提交审核</option>
+                    <option value="draft">保存草稿</option>
+                    <lect>
+                        <input type="hidden" name="action" value="update">
+                        <input type="hidden" id="_wpnonce" name="_wpnonce" value="aa87fd6526">
+                        <button type="submit" class="btn btn-success">确认操作
+                            <tton>
+            </div>
+        </form>
+    </div>
+</article>
+</div>
+<!-- /.Content -->
+</div>
+</div>
+</div>
+</body>
+</html>
